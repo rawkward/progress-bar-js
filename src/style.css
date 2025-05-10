@@ -7,7 +7,7 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,6 +18,7 @@
   --color-grey-bar: rgba(236, 240, 245, 1);
   --color-grey-btn: rgba(220, 230, 234, 1);
   --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
 }
 
 html,
@@ -25,6 +26,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: var(--color-black);
+  font-size: 20px;
 }
 
 body {
@@ -46,11 +49,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 100px;
 }
 
 .progress-ring {
   transform: rotate(-90deg);
-  margin-bottom: 36px;
 }
 
 .progress-bg {
@@ -64,43 +67,56 @@ body {
 .progress-controls {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1rem;
   align-items: flex-start;
 }
 
 .form-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1rem;
   font-size: 1rem;
 }
 
 .progress-input {
-  width: 48px;
-  height: 36px;
+  width: 55px;
+  height: 35px;
   border-radius: 18px;
-  border: 2px solid #bbb;
+  border: 2px solid var(--color-black);
   text-align: center;
-  font-size: 1.1rem;
   font-family: inherit;
   outline: none;
   background: var(--color-white);
+  font-weight: inherit;
+  font-size: inherit;
+  transition: border ease-in-out 0.1s;
+}
+
+.progress-input::-webkit-inner-spin-button,
+.progress-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.progress-input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .progress-input:focus {
   border-color: var(--color-blue);
+  transition: border-color ease-in-out 0.1s;
 }
 
 .toggle {
   appearance: none;
-  width: 40px;
-  height: 22px;
+  margin: 0;
+  width: 55px;
+  height: 35px;
   background: var(--color-grey-btn);
-  border-radius: 11px;
+  border-radius: 18px;
   position: relative;
   outline: none;
   transition: background 0.2s;
-  margin-right: 0.5em;
   cursor: pointer;
 }
 
@@ -113,22 +129,19 @@ body {
   position: absolute;
   left: 3px;
   top: 3px;
-  width: 16px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
   background: var(--color-white);
   border-radius: 50%;
   transition: transform 0.2s;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
 }
 
 .toggle:checked::before {
-  transform: translateX(18px);
+  transform: translateX(20px);
 }
 
 @media (min-width: 568px) {
   .progress-block {
-    max-width: 700px;
-    width: 90vw;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
@@ -136,19 +149,13 @@ body {
 
   .progress-main {
     flex-direction: row;
-    gap: 48px;
     align-items: center;
-    width: 100%;
     justify-content: center;
-  }
-
-  .progress-ring {
-    margin-bottom: 0;
-    margin-right: 36px;
+    width: 100%;
+    gap: 100px;
   }
 
   .progress-controls {
     align-items: flex-start;
-    gap: 24px;
   }
 }
