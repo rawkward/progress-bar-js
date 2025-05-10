@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress bar JS</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+      <div class="progress-block">
+        <div class="progress-main">
+          <svg class="progress-ring" width="150" height="150">
+            <circle
+              class="progress-bg"
+              r="67.5"
+              cx="75"
+              cy="75"
+              fill="none"
+              stroke="rgba(236, 240, 245, 1)"
+              stroke-width="15"
+            />
+            <circle
+              class="progress-value"
+              r="67.5"
+              cx="75"
+              cy="75"
+              fill="none"
+              stroke="rgba(0, 91, 255, 1)"
+              stroke-width="15"
+              stroke-linecap="round"
+              stroke-dasharray="424"
+              stroke-dashoffset="424"
+            />
+          </svg>
+          <form class="progress-controls">
+            <label class="form-row">
+              <input
+                type="number"
+                min="0"
+                max="100"
+                value="60"
+                class="progress-input"
+              />
+              <span>Value</span>
+            </label>
+            <label class="form-row">
+              <input type="checkbox" class="toggle animate-toggle" />
+              <span>Animate</span>
+            </label>
+            <label class="form-row">
+              <input type="checkbox" class="toggle hide-toggle" />
+              <span>Hide</span>
+            </label>
+          </form>
+        </div>
+      </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
