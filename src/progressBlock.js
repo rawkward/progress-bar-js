@@ -52,9 +52,19 @@ export default class ProgressBlock {
 
   onInput(e) {
     let val = e.target.value.replace(/\D/g, "");
-    if (val === "") return;
-    val = Math.max(0, Math.min(100, Number(val)));
-    this.setValue(val);
+
+    if (val === "") {
+      this.setValue("");
+      return;
+    }
+
+    let num = Number(val);
+    if (num > 100) num = 100;
+    if (num < 0) num = 0;
+
+    e.target.value = num.toString();
+
+    this.setValue(num);
   }
 
   onAnimateToggle(e) {
