@@ -51,7 +51,7 @@ export default class ProgressBlock {
   }
 
   onInput(e) {
-    let val = e.target.value.replace(/[^0-9]/g, "");
+    let val = e.target.value.replace(/\D/g, "");
     if (val === "") return;
     val = Math.max(0, Math.min(100, Number(val)));
     this.setValue(val);
