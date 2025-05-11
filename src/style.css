@@ -10,7 +10,7 @@
   font-weight: 600;
 
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -33,14 +33,14 @@ body {
 body {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .progress-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: var(--color-white);
-  flex-direction: column;
 }
 
 .progress-main {
@@ -50,16 +50,25 @@ body {
   gap: 100px;
 }
 
-.progress-ring {
+.progress-circle {
+  width: 150px;
+  height: 150px;
   transform: rotate(-90deg);
 }
 
 .progress-bg {
   stroke: var(--color-grey-bar);
+  fill: none;
+  stroke-width: 15px;
 }
 
 .progress-value {
   stroke: var(--color-blue);
+  fill: none;
+  stroke-width: 15px;
+  stroke-linecap: butt;
+  stroke-dasharray: 424px;
+  stroke-dashoffset: 424px;
 }
 
 .progress-controls {
@@ -69,16 +78,15 @@ body {
   align-items: flex-start;
 }
 
-.form-row {
+.form {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1rem;
 }
 
 .progress-input {
   width: 55px;
-  height: 35px;
+  height: 34px;
   border-radius: 18px;
   border: 2px solid var(--color-black);
   text-align: center;
@@ -109,12 +117,12 @@ body {
   appearance: none;
   margin: 0;
   width: 55px;
-  height: 35px;
+  height: 34px;
   background: var(--color-grey-btn);
   border-radius: 18px;
   position: relative;
   outline: none;
-  transition: background 0.2s;
+  transition: background 0.1s;
   cursor: pointer;
 }
 
@@ -135,25 +143,11 @@ body {
 }
 
 .toggle:checked::before {
-  transform: translateX(20px);
+  transform: translateX(21px);
 }
 
-@media (min-width: 568px) {
-  .progress-block {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
+@media (orientation: landscape) {
   .progress-main {
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 100px;
-  }
-
-  .progress-controls {
-    align-items: flex-start;
   }
 }
